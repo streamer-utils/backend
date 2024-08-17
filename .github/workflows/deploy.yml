@@ -41,7 +41,7 @@ jobs:
           platforms: linux/amd64
           tags: ghcr.io/${{ env.IMAGE }}:latest
           context: .
-          file: ./docker/build.dockerfile
+          file: ./docker/Dockerfile
 
     #   -
     #     name: Invoke deployment hook

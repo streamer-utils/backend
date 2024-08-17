@@ -25,4 +25,4 @@ WORKDIR /app
 
 EXPOSE 80
 
-CMD ["python", "main.py"]
+CMD ["uvicorn", "main:app"]

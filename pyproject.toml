@@ -12,6 +12,7 @@ sentry-sdk = "^2.13.0"
 orjson = "^3.10.7"
 pydantic = "^2.8.2"
 pydantic-settings = "^2.4.0"
+uvicorn = {extras = ["standard"], version = "^0.30.6"}
 
 
 [build-system]
