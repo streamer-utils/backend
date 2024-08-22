@@ -16,6 +16,9 @@ RUN apt update && apt install -y --no-install-recommends netcat-traditional wkht
 
 COPY ./src/ /app
 
+COPY ./scripts/start.sh /
+RUN chmod +x /start.sh
+
 ENV PATH="/opt/venv/bin:$PATH"
 ENV VENV_PATH=/opt/venv
 
@@ -25,4 +28,4 @@ WORKDIR /app
 
 EXPOSE 80
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD /start.sh
