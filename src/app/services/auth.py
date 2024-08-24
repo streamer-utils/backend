@@ -38,7 +38,7 @@ class ValidateResponse(TypedDict):
     user_id: str
 
 
-async def authorize(base_url, code: str, scope: list[str]) -> AuthorizeResponse | AuthorizeError:
+async def authorize(base_url: str, code: str, scope: list[str]) -> AuthorizeResponse | AuthorizeError:
     twitch = await Twitch(env_config.TWITCH_CLIENT_ID, env_config.TWITCH_SECRET_KEY)
     target_scope = [AuthScope.CHANNEL_BOT]
 
