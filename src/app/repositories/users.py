@@ -7,12 +7,12 @@ from app.domain.users import User, UserCreate, TwitchId
 
 
 class UserRepository(SqlAlchemyRepository[UserModel]):
-    model = UserModel
+    MODEL = UserModel
 
     @classmethod
     async def get(cls, id: int) -> User:
         async with cls.session() as session:
-            stmt = select(cls.model).where(cls.model.id == id)
+            stmt = select(cls.MODEL).where(cls.MODEL.id == id)
 
             result = await session.execute(stmt)
 
@@ -22,7 +22,7 @@ class UserRepository(SqlAlchemyRepository[UserModel]):
     @classmethod
     async def get_by_twitch_id(cls, twitch_id: TwitchId) -> User:
         async with cls.session() as session:
-            stmt = select(cls.model).where(cls.model.twitch_id == twitch_id)
+            stmt = select(cls.MODEL).where(cls.MODEL.twitch_id == twitch_id)
 
             result = await session.execute(stmt)
 
