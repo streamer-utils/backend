@@ -39,6 +39,7 @@ class UserRepository(SqlAlchemyRepository[UserModel]):
             session.add(obj)
 
             await session.commit()
+            await session.refresh(obj)
 
             return User.model_validate(obj, from_attributes=True)
 
