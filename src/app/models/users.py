@@ -8,7 +8,7 @@ from app.domain.users import TwitchId
 class User(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, init=False)
 
     twitch_id: Mapped[TwitchId] = mapped_column(BigInteger, unique=True, index=True)
     twitch_login: Mapped[str] = mapped_column(String(length=32), unique=False)
