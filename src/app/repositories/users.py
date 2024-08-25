@@ -36,7 +36,7 @@ class UserRepository(SqlAlchemyRepository[UserModel]):
         async with cls.session() as session:
             obj = cls.MODEL(**data.model_dump())
 
-            session.add(data)
+            session.add(obj)
 
             await session.commit()
 
